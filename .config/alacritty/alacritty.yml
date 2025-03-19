@@ -1,0 +1,20 @@
+window:
+  opacity: 0.7
+  decorations: none
+font:
+  normal:
+    family: Mononoki Nerd Font
+    style: ExtraLight
+  
+  bold:
+    family: Mononoki Nerd Font
+    style: Light
+  
+  italic:
+    family: Mononoki Nerd Font
+    style: Extra Light Italic
+  
+  bold_italic:
+    family: Mononoki Nerd Font
+    style: Light Italic
+  size: 14
