@@ -26,7 +26,14 @@ local config = function()
 				previewer = true,
 			},
 		},
+    extensions = {
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown({})
+      }
+    }
 	})
+  -- load the extension after setting up Telescope
+  require("telescope").load_extension("ui-select")
 end
 
 return {
@@ -34,7 +41,7 @@ return {
 	tag = "0.1.5",
 --  branch = "0.1.x",
 	lazy = false,
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
 	config = config,
 	keys = {
 		keymap.set("n", "<leader>fk", ":Telescope keymaps<CR>"),
