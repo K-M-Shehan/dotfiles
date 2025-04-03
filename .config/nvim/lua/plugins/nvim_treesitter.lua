@@ -1,15 +1,10 @@
 local config = function()
 	require("nvim-treesitter.configs").setup({
-		build = ":TSUpdate",
 		indent = {
 			enable = true,
 		},
 		autotag = {
 			enable = true,
-		},
-		event = {
-			"BufReadPre",
-			"BufNewFile",
 		},
 		ensure_installed = {
 			"rust",
@@ -20,7 +15,6 @@ local config = function()
 			"yaml",
 			"html",
 			"css",
-			"markdown",
 			"bash",
 			"lua",
 			"dockerfile",
@@ -30,6 +24,7 @@ local config = function()
 			"vue",
 			"svelte",
 			"toml",
+      "java",
 		},
 		auto_install = true,
 		highlight = {
@@ -51,5 +46,7 @@ end
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
+	build = ":TSUpdate",
+  event = { "BufReadPre", "BufNewFile" },
 	config = config,
 }
