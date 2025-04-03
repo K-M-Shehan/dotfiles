@@ -22,10 +22,10 @@ return {
 
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       lspconfig.ts_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
