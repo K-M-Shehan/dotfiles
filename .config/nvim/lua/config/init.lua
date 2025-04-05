@@ -1,5 +1,5 @@
 require("config.remap")
-print("hello from supremestrawhat")
+print("Hello!")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -41,4 +41,7 @@ local opts = {
 	},
 }
 
-require("lazy").setup('plugins', opts)
+require("lazy").setup({
+  spec = { import = "plugins" },
+  opts
+})
