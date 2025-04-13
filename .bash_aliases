@@ -2,3 +2,4 @@
 
 alias ..='cd ..'
 alias gs='git status'
+alias la='ls -al'
