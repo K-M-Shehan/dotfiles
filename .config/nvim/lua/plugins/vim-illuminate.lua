@@ -5,6 +5,7 @@ return {
     require("illuminate").configure({
       providers = {
         "lsp",
+        "treesitter",
       },
     })
   end,
