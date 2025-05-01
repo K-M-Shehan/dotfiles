@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n❯ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\h:\w\n❯ '
 fi
 unset color_prompt force_color_prompt
 
@@ -122,6 +122,9 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias zen="flatpak run app.zen_browser.zen"
+
+# Enable fzf key bindings and auto-completion
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
