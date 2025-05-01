@@ -1,5 +1,8 @@
 # some aliases i setup for ease
 
+# Reload bashrc
+alias reload='source ~/.bashrc'
+
 alias ..='cd ..'
 alias la='ls -al'
 
@@ -11,3 +14,6 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 alias gl='git log --oneline --graph --decorate'
+
+# apps
+alias zen="flatpak run app.zen_browser.zen"

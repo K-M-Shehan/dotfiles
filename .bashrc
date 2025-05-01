@@ -121,8 +121,6 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-alias zen="flatpak run app.zen_browser.zen"
-
 # Enable fzf key bindings and auto-completion
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
