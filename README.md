@@ -16,6 +16,11 @@ sudo apt install git
 sudo apt install stow
 ```
 
+### fzf
+```
+sudo apt install fzf
+```
+
 ## Installation
 Make sure that you are in the $HOME directory when you do this.
 
