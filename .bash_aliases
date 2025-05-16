@@ -5,6 +5,7 @@ alias reload='source ~/.bashrc'
 
 alias ..='cd ..'
 alias la='ls -al'
+alias c='clear'
 
 # -----------------------
 # 🧪 GIT HELPERS
