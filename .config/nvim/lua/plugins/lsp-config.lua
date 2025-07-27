@@ -10,7 +10,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "clangd" },
+				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "clangd", "pyright" },
 				handlers = {
 					function(server)
 						require("lspconfig")[server].setup({
@@ -53,7 +53,18 @@ return {
               capabilities = require("cmp_nvim_lsp").default_capabilities(),
               cmd = { "clangd", "--background-index" },
             })
-          end
+          end,
+          pyright = function()
+						require("lspconfig").pyright.setup({
+							settings = {
+								python = {
+									venvPath = ".",
+									venv = ".venv",
+								},
+							},
+							capabilities = require("cmp_nvim_lsp").default_capabilities(),
+						})
+					end,
 				},
 			})
 		end,
