@@ -21,5 +21,9 @@ alias gl='git log --oneline --graph --decorate'
 alias zen="flatpak run app.zen_browser.zen"
 
 # fzf aliases
-alias f='fzf --preview="cat {}"'
-alias fv='vim $(fzf -m --preview="cat {}")'
+
+# alias f='fzf --preview="cat {}"'
+# alias fv='vim $(fzf -m --preview="cat {}")'
+
+alias f='fzf --preview="[[ \$(file --mime-type -b {}) =~ pdf ]] && pdftotext {} - || cat {}"'
+alias fv='vim $(fzf -m --preview="[[ \$(file --mime-type -b {}) =~ pdf ]] && pdftotext {} - || cat {}")'
