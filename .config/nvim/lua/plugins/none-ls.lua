@@ -37,12 +37,15 @@ return {
 
     null_ls.setup({
       sources = {
+        -- formatting
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.gofumpt,
+
+        -- diagnostics / linting
         htmlhint,
       },
     })
-
-    vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
   end,
 }
