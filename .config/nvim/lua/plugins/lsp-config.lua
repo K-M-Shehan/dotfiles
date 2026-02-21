@@ -73,7 +73,6 @@ return {
 					clangd = function()
 						require("lspconfig").clangd.setup({
 							capabilities = capabilities,
-							cmd = { "clangd", "--background-index" },
 						})
 					end,
 					-- python ls
@@ -119,6 +118,13 @@ return {
 					csharp_ls = function()
 						require("lspconfig").csharp_ls.setup({
 							capabilities = capabilities,
+              root_dir = function(bufnr, on_dir)
+                local fname = vim.api.nvim_buf_get_name(bufnr)
+                on_dir(
+                  require("lspconfig.util").root_pattern("*.sln", "*.slnx", "*.csproj", ".git")(fname)
+                  or vim.fn.getcwd()
+                )
+              end,
 						})
 					end,
 					-- tailwind ls
