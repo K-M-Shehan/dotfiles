@@ -8,10 +8,27 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		config = function()
+	  dependencies = {
+      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "clangd", "pyright" },
+				ensure_installed = {
+          "lua_ls",
+          "ts_ls",
+          "html",
+          "cssls",
+          "clangd",
+          "pyright",
+          "rust_analyzer",
+          "tailwindcss",
+          "gopls",
+          "csharp_ls"
+        },
 				handlers = {
+          -- default handler for any server without a specific handler
 					function(server)
 						require("lspconfig")[server].setup({
 							capabilities = vim.tbl_deep_extend(
@@ -63,6 +80,51 @@ return {
 								},
 							},
 							capabilities = require("cmp_nvim_lsp").default_capabilities(),
+						})
+					end,
+					rust_analyzer = function()
+						require("lspconfig").rust_analyzer.setup({
+							capabilities = require("cmp_nvim_lsp").default_capabilities(),
+							settings = {
+								["rust-analyzer"] = {
+									checkOnSave = {
+										command = "clippy",
+									},
+								},
+							},
+						})
+					end,
+					gopls = function()
+						require("lspconfig").gopls.setup({
+							capabilities = require("cmp_nvim_lsp").default_capabilities(),
+							settings = {
+								gopls = {
+									analyses = {
+										unusedparams = true,
+									},
+									staticcheck = true,
+								},
+							},
+						})
+					end,
+					csharp_ls = function()
+						require("lspconfig").csharp_ls.setup({
+							capabilities = require("cmp_nvim_lsp").default_capabilities(),
+						})
+					end,
+					tailwindcss = function()
+						require("lspconfig").tailwindcss.setup({
+							capabilities = require("cmp_nvim_lsp").default_capabilities(),
+							filetypes = {
+								"html",
+								"css",
+								"javascript",
+								"javascriptreact",
+								"typescript",
+								"typescriptreact",
+								"svelte",
+								"vue",
+							},
 						})
 					end,
 				},
