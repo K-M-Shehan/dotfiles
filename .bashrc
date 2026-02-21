@@ -143,3 +143,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH=$PATH:/usr/local/go/bin
