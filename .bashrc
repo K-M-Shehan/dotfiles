@@ -122,10 +122,6 @@ export NVM_DIR="$HOME/.nvm"
 # Enable fzf key bindings and auto-completion
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 . "$HOME/.local/bin/env"
 
 # >>> conda initialize >>>
@@ -144,3 +140,8 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH=$PATH:/usr/local/go/bin
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

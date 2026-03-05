@@ -8,9 +8,7 @@ alias la='ls -al'
 alias c='clear'
 alias clip='xclip -selection clipboard <'
 
-# -----------------------
-# 🧪 GIT HELPERS
-# -----------------------
+#  GIT HELPERS
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
