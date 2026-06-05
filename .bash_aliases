@@ -25,3 +25,10 @@ alias zen="flatpak run app.zen_browser.zen"
 
 alias f='fzf --preview="[[ \$(file --mime-type -b {}) =~ pdf ]] && pdftotext {} - || cat {}"'
 alias fv='vim $(fzf -m --preview="[[ \$(file --mime-type -b {}) =~ pdf ]] && pdftotext {} - || cat {}")'
+
+# uses fzf to play stuff in mpv
+fpv() {
+  lookup=$(fzf)
+  echo "Playing file: $lookup"
+  mpv --no-terminal "$lookup" &
+}
