@@ -1,0 +1,67 @@
+# ============================================================
+# GENERAL ALIASES
+# ============================================================
+
+# Reload Zsh configuration
+alias reload='source ~/.zshrc'
+
+# Navigation
+alias ..='cd ..'
+alias la='ls -al'
+
+# Utilities
+alias c='clear'
+alias clip='xclip -selection clipboard <'
+
+# Editor
+alias vim='nvim'
+
+
+# ============================================================
+# GIT HELPERS
+# ============================================================
+
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+
+
+# ============================================================
+# APPLICATIONS
+# ============================================================
+
+alias zen='flatpak run app.zen_browser.zen'
+
+
+# ============================================================
+# FZF
+# ============================================================
+
+# Fuzzy file finder with PDF preview support
+alias f='fzf --preview='\''[[ $(file --mime-type -b {}) == application/pdf ]] && pdftotext {} - || cat {}'\'''
+
+# Fuzzy find and open multiple files in Neovim
+fv() {
+    local selected
+    selected=$(fzf -m --preview='[[ $(file --mime-type -b {}) == application/pdf ]] && pdftotext {} - || cat {}') || return
+    [[ -n "$selected" ]] || return
+    nvim "${(@f)selected}"
+}
+
+
+# ============================================================
+# MPV
+# ============================================================
+
+# Fuzzy find and play media
+fpv() {
+    local lookup
+
+    lookup=$(fzf) || return
+    [[ -n "$lookup" ]] || return
+
+    echo "Playing file: $lookup"
+    mpv --no-terminal "$lookup" &
+}
